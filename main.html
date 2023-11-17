@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style/main.css">
+    <script defer src="src/main.js"></script>
+    <script defer src="src/darkmode.js"></script>
+</head>
+<body>
+    <header>
+        <div class="flex">
+            
+            <!-- display welcome message -->
+            <h1 id = "welcomeMessage"></h1>
+            <button id="logoutBtn" value="LOGOUT">Logout</button>
+            <img src="assets/moon.png" id = "togglemode"></img>
+        </div>
+    </header>
+    <div class="container">
+        <!-- list of pending tasks -->
+        <div class="todo-tasks">
+            <button class = "addTasks" id = "addTaskMainBtn">Add Tasks</button>
+            <div class = "items-list">
+                <h2>Tasks</h2>
+                <ul id="pending-list">
+                    <!-- Pending tasks will be dynamically added here -->
+                </ul>
+            </div>
+            
+            <!-- user action buttons -->
+            <div class = "task-operations">
+                <button id="undo">Undo</button>
+                <button id="confirm">Confirm</button>
+            </div> 
+               
+        </div>
+        
+        <!-- list of completed tasks -->
+        <div class="completed-tasks">
+           
+            <div class = "items-list">
+                <h2>Completed Tasks</h2>
+                <ul id="completed-list">
+                    <!-- Completed tasks will be dynamically added here -->
+                </ul>
+            </div>
+            
+            <!-- show selected task's details -->
+            <div class = "items-list task-details-parent">
+                <h3>Task Details</h3>
+                <div class="task-details">
+                    <div class="overview">
+                        <span id = "overview-text">Select a task.</span>
+                    </div>
+                    <div class = "overview date-flex">
+                        <div class = "small-task-details">
+                            <span class="date-text">Due Date</span>
+                            <span class="date-value" id = "dueDate">NA</span>
+                        </div>
+                        <div class = "small-task-details">
+                            <span class="date-text">Category</span>
+                            <span class="date-value" id = "category">NA</span>
+                        </div>
+                        <div class = "main-task-operations">
+                            <div class="small-task-details user-operations">
+                                <button class = "addTasks" id = "editTask">Edit</button>
+                                <button class = "addTasks" id = "deleteTask">Delete</button>
+                            </div>
+                            <button class = "addTasks" id = "markAsDone">Mark as Done</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <!-- Add Task Pop-up -->
+    <div class = "pop-up" id = "addTask-popup">
+        <div class = "pop-up-header">
+            <h2>Add Task</h2>
+            <button class = "close-popup" id = "closeAddTaskFormBtn">&times;</button>
+        </div>
+        <form id = "addTaskForm" autocomplete="off">
+            <input type = "text" class = "pop-up-input" placeholder="Title" id = "addTaskTitle"></input>
+            <input type = "text" class = "pop-up-input" placeholder="Description" id = "addTaskDescription"></input>
+            <div class="dueDate-form">
+                <span class = "date-text">Due Date</span>
+                <input type = "date" class = "pop-up-input" id = "addTaskDate"></input>                
+                <select class = "categoryList" name="AddCategory-list" id="addCategory-list">
+                    <option value="0" selected disabled hidden>Category</option>
+                    <option value="1">Home</option>
+                    <option value="2">Office</option>
+                    <option value="3">Academics</option>
+                </select>              
+            </div>
+            <button class = "addTasks" id = "addTaskFormBtn">Add Task</button>
+            <span class="processMessage" id = "addProcessMessage">processMessage</span>
+        </form>
+    </div>
+    <div class = "pop-up" id = "editTask-popup">
+        <div class = "pop-up-header">
+            <h2>Edit Task</h2>
+            <button class = "close-popup" id = "closeEditTaskFormBtn">&times;</button>
+        </div>
+        <form id = "editTaskForm" autocomplete="off">
+            <input type = "text" class = "pop-up-input" id = "editTaskTitle" placeholder="Title"></input>
+            <input type = "text" class = "pop-up-input" id = "editTaskDescription" placeholder="Description"></input>
+            <div class="dueDate-form">
+                <span class = "date-text">Due Date</span>
+                <input type = "date" class = "pop-up-input" id = "editTaskDate"></input>
+                <select class = "categoryList" name="editCategory-list" id="editCategory-list">
+                    <option value="1">Home</option>
+                    <option value="2">Office</option>
+                    <option value="3">Academics</option>
+                </select>              
+            </div>
+            <button class = "addTasks" id = "editTaskFormBtn">Edit Task</button>
+            <span class="processMessage" id = "editProcessMessage">processMessage</span>
+        </form>
+    </div>
+    <div id = "overlay"></div>
+</body>
+</html>

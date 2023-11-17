@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/entry.css">
+    <script defer src="src/entry.js"></script>
+    <script defer src="src/darkmode.js"></script>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <header>
+      <div class="flex">
+        <h1>> Ready to get things done?_</h1>
+        <img src="assets/moon.png" id = "togglemode"></img>
+      </div>
+    </header>
+    <div class="container">
+      <div class="form">
+        <h2>Create Account</h2>
+        <form autocomplete="off">
+          <input type="text" placeholder="Username" id = "username" name = "username">
+          <input type="password" placeholder="Password" id = "password" name = "password">
+          <input type="password" placeholder="Confirm Password" id = "cpassword" name = "cpassword">
+          <button id="entryBtn" value = "REGISTER" type = "submit">Sign Up</button>
+          <h6>Already registered? <a href = "signin.html">Login</a></h6>
+          <span id="processMessage">processMessage</span>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
