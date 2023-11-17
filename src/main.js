@@ -206,7 +206,7 @@ function loadTasks(){
 //   }
 // }
 
-/*-----------main gimmick(minimal change to page)-------------------------------*/
+/*-----------magic(minimal change to page)-------------------------------*/
 // load all tasks onto the page without updating existing list elements
 function preserveDOM() {
   let newtitle = undefined;

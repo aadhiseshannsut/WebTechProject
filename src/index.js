@@ -9,7 +9,7 @@ const loginBtn = document.querySelector('#loginBtn');
 const signupBtn = document.querySelector('#signupBtn');
 
 
-/*Main gimmick*/
+/*magic*/
 let dialogues = [
   "This is a simple website that lets you implement a To-Do List",
   "You can ADD a new task...",
