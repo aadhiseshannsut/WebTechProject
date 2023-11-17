@@ -319,10 +319,22 @@ function prepareToDeleteTask(){
 
 
 /*Add a Task*/
+
+function showOverlay() {
+  overlay.style.opacity = "50%";
+  overlay.style.pointerEvents = "all";
+}
+
+function hideOverlay() {
+  overlay.style.opacity = "0";
+  overlay.style.pointerEvents = "none";
+}
+
 // open Add Task form
 function openAddTaskForm(){
-  overlay.classList.add('overlay-active');  
   addTaskForm.classList.add('pop-up-active');
+  showOverlay();
+  console.log(overlay.classList);
 }
 
 // open Add Task form
@@ -337,7 +349,7 @@ function closeAddTaskForm(){
   // reset message
   addProcessMessage.classList.remove('processMessage-active');
   
-  overlay.classList.remove('overlay-active');  
+  hideOverlay();  
   addTaskForm.classList.remove('pop-up-active');
 }
 
@@ -347,9 +359,7 @@ function addTask(){
   const description = addTaskDescription.value;
   const dueDate = addTaskDate.value;
   const categoryID = addCategory.value;
-  
-  // console.log(title, description, dueDate, categoryID);
-  
+    
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'process/main.php', true);
   const params = "action=ADDTASK"+"&title="+title+"&description="+description+"&dueDate="+dueDate+"&categoryID="+categoryID;
@@ -374,8 +384,8 @@ function addTask(){
 // open Edit Task form
 function openEditTaskForm(li){
   if (li){
+    showOverlay();
     let taskObject = findTaskObject(li.id);  
-    overlay.classList.add('overlay-active');  
     editTaskForm.classList.add('pop-up-active');
     // show previous values
     editTaskTitle.value = taskObject.title;
@@ -395,7 +405,7 @@ function closeEditTaskForm(){
   // reset message
   editProcessMessage.classList.remove('processMessage-active');
 
-  overlay.classList.remove('overlay-active');  
+  hideOverlay();  
   editTaskForm.classList.remove('pop-up-active');
 }
 
@@ -407,8 +417,6 @@ function editTask(){
   const dueDate = editTaskDate.value;
   const categoryID = editCategory.value;
 
-  // console.log(taskID, title, description, dueDate, categoryID);
-  
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'process/main.php', true);
   const params = "action=EDITTASK"+"&taskID="+taskID+"&title="+title+"&description="+description+"&dueDate="+dueDate+"&categoryID="+categoryID;
@@ -487,7 +495,6 @@ function confirmChoices(){
     deletedFlag = true;
   }
   
-  // console.log(markedFlag, deletedFlag);
   
   // update page (only if any change is made)
   if (markedFlag || deletedFlag){
@@ -569,7 +576,6 @@ addTaskFormBtn.addEventListener('click', (e)=>{
 
 // close add task form
 closeAddTaskFormBtn.addEventListener('click', closeAddTaskForm);
-overlay.addEventListener('click', closeAddTaskForm);
 
 // open edit task form
 editTaskBtn.addEventListener('click',()=>{openEditTaskForm(selectedListElement)});
@@ -582,8 +588,12 @@ editTaskFormBtn.addEventListener('click', (e)=>{
 
 // close edit task form
 closeEditTaskFormBtn.addEventListener('click', closeEditTaskForm);
-overlay.addEventListener('click', closeEditTaskForm);
 
+// overlay
+overlay.addEventListener('click',()=>{
+  closeAddTaskForm();
+  closeEditTaskForm();  
+});
 
 // on window load
 window.addEventListener('load', ()=>{
@@ -601,3 +611,6 @@ window.addEventListener('load', ()=>{
     }
   });
 });
+
+
+// console.log(title, description, dueDate, categoryID);
