@@ -1,7 +1,7 @@
 <?php
 	$db_server = "localhost";
-	$db_user = "college";
-	$db_pass = "aadhinsut";
+	$db_user = "root";
+	$db_pass = "";
 	$db_name = "ToDoList";
 	$conn = "";
 	try{
