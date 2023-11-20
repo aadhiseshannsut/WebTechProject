@@ -24,6 +24,7 @@ let counter = 0;
 
 function nextPage() {
   if (counter<N) {
+    
     image.classList.add('hiding');
     displayText.classList.add('hiding');
     setTimeout(()=> {
@@ -47,12 +48,12 @@ function nextPage() {
         image.style.backgroundImage =  "url('assets/edittaskdemo.png')";
         image.classList.remove('hiding');
       }
-      // console.log(counter);
+      // transition to final message
+      else if (counter > N-1){
+        nextBtn.style.opacity = "0%";
+        image.style.width = "5%";
+      }
     }, 500);
-  }
-  if (counter == N-1){
-    nextBtn.style.opacity = "0%";
-    image.style.width = "5%";
   }
 }
 

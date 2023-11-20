@@ -12,6 +12,10 @@
     #FAFAFA sea salt
 */
 
+/*display size : 2560x1600 pixels*/
+html {scroll-behavior: smooth;}
+
+
 :root {
     --primary-color: #f4f4f4; 
     --secondary-color: #333;
@@ -44,22 +48,21 @@
     --primary-button-hover-color: #202020;
 }
 
-.validating {
-    box-shadow: 0.75rem 0.75rem 0.75rem var(--primary-shadow-color);
-    border: green;
-}
 
 header, body{transition: background-color 0.5s;}
 
 body {
     font-family: Arial, sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background-color: var(--primary-color);
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 header {
+    width: 100%;
     background-color: var(--secondary-color);
     color: var(--secondary-font-color);
     z-index: 3;
@@ -151,7 +154,7 @@ span {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 100%;
 }
 
 .container {
@@ -159,7 +162,11 @@ span {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    margin: 0;
+    padding: 0;
+    height: 80%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form {
@@ -188,3 +195,41 @@ button:hover {
 }
 
 a:hover{text-shadow: 0.03em 0.03em 0.03em var(--primary-shadow-color);}
+
+/* Small devices (phones) */
+@media only screen and (max-width: 1000px) {
+    body {font-size: 1.4rem;}
+
+    h1 {flex: 2;}
+
+    h2 {font-size: 1.8em;}
+
+    .container {height: 80%;}
+    
+    .flex {
+        flex-direction: column; /* Stack items vertically for smaller screens */
+        align-items: center; /* Center items for smaller screens */
+    }
+
+    .form {
+        padding: 2.5em;
+        padding-top: 0.625em;
+        padding-bottom: 0.9em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {font-size: 1rem;}
+    .container {height: 50%;}
+    
+    .flex {
+        flex-direction: column; /* Stack items vertically for smaller screens */
+        align-items: center; /* Center items for smaller screens */
+    }
+
+    .form {
+        padding: 2.5em;
+        padding-top: 0.625em;
+        padding-bottom: 0.9em;
+    }
+}
