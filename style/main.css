@@ -251,7 +251,7 @@ button {
 
 .task-details-parent {
     width: 100%;
-    height: 30%;
+    height: 40%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -542,6 +542,10 @@ input:hover, select:hover {box-shadow: 0.13em 0.13em 0.09em var(--primary-shadow
         height: 60%;
     }
     
+    .dueDate-form{flex-direction: column;}
+    
+    .categoryList {width: 100%};
+    
     #logoutBtn{
         width:100%;
         margin: 0.5em;
@@ -582,6 +586,10 @@ input:hover, select:hover {box-shadow: 0.13em 0.13em 0.09em var(--primary-shadow
         width: 100%;
         height: 60%;
     }
+    
+    .dueDate-form{flex-direction: column;}
+    
+    .categoryList {width: 100%};
     
     #logoutBtn{
         width:100%;
