@@ -510,7 +510,7 @@ input:hover, select:hover {box-shadow: 0.13em 0.13em 0.09em var(--primary-shadow
 
 
 /* Small devices (phones) */
-@media only screen and (min-width: 600px) and (max-width: 1000px) {
+@media only screen and (min-width: 600px) and (max-width: 1500px) {
     body {font-size: 1.2rem;}
 
     h1 {flex: 2;}

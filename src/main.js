@@ -334,7 +334,6 @@ function hideOverlay() {
 function openAddTaskForm(){
   addTaskForm.classList.add('pop-up-active');
   showOverlay();
-  console.log(overlay.classList);
 }
 
 // open Add Task form
